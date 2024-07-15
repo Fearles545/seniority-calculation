@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("normalize.css");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+:root {
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #bb86fc;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a,
+button {
+  color: var(--accent-color);
+}
