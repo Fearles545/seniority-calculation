@@ -7,10 +7,15 @@
   --accent-color: #bb86fc;
 }
 
+html,
+body {
+  height: 100%;
+}
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
+  margin: 0;
 }
 
 a,

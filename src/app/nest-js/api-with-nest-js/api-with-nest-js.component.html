@@ -1,0 +1,42 @@
+<section class="section">
+  <h3 class="section-title">API with NestJS</h3>
+
+  <form class="request-from" [formGroup]="requestForm" (ngSubmit)="onSubmit()">
+    <div class="request-url-container">
+      <mat-form-field>
+        <mat-label>HTTP method</mat-label>
+        <mat-select formControlName="method">
+          @for (httpMethod of httpMethods; track httpMethod) {
+          <mat-option [value]="httpMethod">
+            {{ httpMethod }}
+          </mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="request-url">
+        <mat-label>Enter request</mat-label>
+        <input
+          matInput
+          formControlName="url"
+          placeholder="http://localhost:3000/"
+        />
+      </mat-form-field>
+    </div>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Data</mat-label>
+
+      <textarea matInput formControlName="data"></textarea>
+    </mat-form-field>
+
+    <button mat-flat-button color="primary" type="submit">Send request</button>
+  </form>
+
+  <mat-card *ngIf="response$ | async as response">
+    <mat-card-title>Response</mat-card-title>
+    <mat-card-content>
+      <pre>{{ response | json }}</pre>
+    </mat-card-content>
+  </mat-card>
+</section>
