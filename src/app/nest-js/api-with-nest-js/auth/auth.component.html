@@ -1,11 +1,11 @@
 <section class="section">
-  <h3 class="section-title">API with NestJS</h3>
+  <h3 class="section-title">authentication.controller.ts</h3>
 
   <form class="request-from" [formGroup]="requestForm" (ngSubmit)="onSubmit()">
     <div class="request-url-container">
       <mat-form-field>
         <mat-label>HTTP method</mat-label>
-        <mat-select formControlName="method">
+        <mat-select [formControl]="method">
           @for (httpMethod of httpMethods; track httpMethod) {
           <mat-option [value]="httpMethod">
             {{ httpMethod }}
@@ -18,16 +18,28 @@
         <mat-label>Enter request</mat-label>
         <input
           matInput
-          formControlName="url"
+          [formControl]="url"
           placeholder="http://localhost:3000/"
         />
       </mat-form-field>
     </div>
 
     <mat-form-field appearance="outline">
-      <mat-label>Data</mat-label>
+      <mat-label>Email</mat-label>
 
-      <textarea matInput formControlName="data"></textarea>
+      <input type="email" matInput formControlName="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+
+      <input type="text" matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+
+      <input type="password" matInput formControlName="password" />
     </mat-form-field>
 
     <button mat-flat-button color="primary" type="submit">Send request</button>
@@ -40,5 +52,3 @@
     </mat-card-content>
   </mat-card>
 </section>
-
-<app-auth></app-auth>

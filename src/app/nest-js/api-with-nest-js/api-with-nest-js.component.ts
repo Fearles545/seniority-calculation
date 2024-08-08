@@ -11,6 +11,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 import { ApiWithNestJsService } from './api-with-nest-js.service';
+import { AuthComponent } from './auth/auth.component';
 
 @Component({
   selector: 'app-api-with-nest-js',
@@ -25,6 +26,7 @@ import { ApiWithNestJsService } from './api-with-nest-js.service';
     MatCardModule,
     JsonPipe,
     AsyncPipe,
+    AuthComponent,
   ],
   templateUrl: './api-with-nest-js.component.html',
   styleUrl: './api-with-nest-js.component.css',
@@ -58,6 +60,7 @@ export class ApiWithNestJsComponent implements OnInit {
         break;
 
       case 'POST':
+        debugger;
         this.response$ = this.apiService.post(
           this.requestForm.value.url,
           JSON.parse(this.requestForm.value.data)
