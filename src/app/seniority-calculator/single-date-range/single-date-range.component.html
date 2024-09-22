@@ -1,0 +1,42 @@
+<form [formGroup]="form" class="date-range-container">
+  <mat-form-field appearance="outline" color="primary">
+    <mat-label>Дата початку</mat-label>
+
+    <input
+      matInput
+      placeholder="ДД.ММ.РРРР"
+      formControlName="startDate"
+      #startDateInput
+    />
+
+    @if(form.controls['startDate'].value) {
+    <button
+      matSuffix
+      mat-icon-button
+      (click)="form.controls['startDate'].reset()"
+      color="warn"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+
+  <span>—</span>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Дата закінчення</mat-label>
+
+    <input matInput placeholder="ДД.ММ.РРРР" formControlName="endDate" />
+
+    @if (form.controls['endDate'].value) {
+    <button
+      matSuffix
+      mat-icon-button
+      (click)="form.controls['endDate'].reset()"
+      color="warn"
+    >
+      <mat-icon>clear</mat-icon>
+    </button>
+    }
+  </mat-form-field>
+</form>

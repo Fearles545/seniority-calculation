@@ -1,0 +1,11 @@
+.date-range-container {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.date-range-container mat-form-field {
+  width: 12rem;
+}

@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { SeniorityCalculatorComponent } from './seniority-calculator/seniority-calculator.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [SeniorityCalculatorComponent],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

@@ -1,26 +1,23 @@
-<div>
-  <mat-form-field appearance="fill">
-    <mat-label>Start Date</mat-label>
-    <input matInput [matDatepicker]="picker1" [formControl]="startDate" placeholder="Start Date">
-    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-    <mat-datepicker #picker1></mat-datepicker>
-  </mat-form-field>
+<section class="container">
+  <h2 class="title">Періоди</h2>
 
-  <mat-form-field appearance="fill">
-    <mat-label>End Date</mat-label>
-    <input matInput [matDatepicker]="picker2" [formControl]="endDate" placeholder="End Date">
-    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-    <mat-datepicker #picker2></mat-datepicker>
-  </mat-form-field>
+  @for (period of periods.controls; track period.value; let i = $index) {
+  <app-single-date-range [period]="period" (validPeriod)="onValidPeriod()">
+  </app-single-date-range>
+  }
 
-  <button mat-flat-button color="primary" (click)="calculateDuration()">Calculate Duration</button>
+  <button
+    class="calculate-button"
+    mat-flat-button
+    color="primary"
+    (click)="calculateDuration()"
+  >
+    Розрахувати
+  </button>
 
-  <div *ngIf="duration">
-    <p>Years: {{ duration.years }}</p>
-    <p>Months: {{ duration.months }}</p>
-    <p>Days: {{ duration.days }}</p>
-    <!-- <p>Hours: {{ duration.hours }}</p>
-    <p>Minutes: {{ duration.minutes }}</p>
-    <p>Seconds: {{ duration.seconds }}</p> -->
+  <div *ngIf="duration" class="result-container">
+    <p>Роки: {{ duration.years }}</p>
+    <p>Місяці: {{ duration.months }}</p>
+    <p>Дні: {{ duration.days }}</p>
   </div>
-</div>
+</section>
