@@ -1,0 +1,11 @@
+<form class="w-fit flex justify-center items-center gap-3 p-3 border-1 border-slate-500 rounded-sm"
+  [formGroup]="periodFormGroup()">
+  <p-checkbox formControlName="isActive" binary="true" size="large" variant="filled" />
+
+  <p-datepicker formControlName="from" dateFormat="dd.mm.yy" />
+  -
+  <p-datepicker formControlName="to" dateFormat="dd.mm.yy" />
+
+  <p-button icon="pi pi-minus-circle" [rounded]="true" variant="outlined" severity="warn"
+    (onClick)="removePeriod.emit(index())"></p-button>
+</form>
